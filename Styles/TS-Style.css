@@ -540,8 +540,6 @@ a:hover .Underline::before {
 
 /* ---- CINESTILL Page ---- */
 .CineStill .SectionImg {
-    background-image: url(/Images/cinestill/cinestill-small.gif);
-    background-size: cover;
     width: calc(100vw - 8%);
 }
 .CineStill #Thumbnail1 {
