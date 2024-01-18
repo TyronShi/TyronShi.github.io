@@ -540,6 +540,7 @@ a:hover .Underline::before {
 
 /* ---- CINESTILL Page ---- */
 .CineStill .SectionImg {
+    background-image: none;
     width: calc(100vw - 8%);
 }
 .CineStill #Thumbnail1 {
