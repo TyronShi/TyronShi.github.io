@@ -329,9 +329,11 @@ a:hover .Underline::before {
 }
 
 /* ---- Home Page ---- */
-#Page0 {
-    background-image: none;
+#HomeBody #Page0 .SectionImg {
+    background-image: url(/Videos/home-reel-8s-compressed.mp4);
     background-size: cover;
+    height: 100vh;
+    width: 100vw;
 }
 #HomeBody #Page1 .SectionImg {
     background-image: url(/Images/vanity/03.jpg);
@@ -591,12 +593,6 @@ a:hover .Underline::before {
 
 /* ---------------- MEDIA QUERIES ---------------- */
 @media all and (max-width: 1250px) {
-    #PageContent {
-        scroll-snap-type: none;
-    }
-    #PageContent .SectionTitle:hover {
-        border: none;
-    }
     #PageContent .SectionTitle:hover h3 {
         color: #A3EF1E;
     }
