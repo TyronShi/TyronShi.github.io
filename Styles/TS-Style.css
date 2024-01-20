@@ -1,5 +1,4 @@
 /* All styles in this sheet are global except for when noted */
-
 /* ---------------- RESET HTML ---------------- */
 * {
     box-sizing: border-box;
@@ -9,15 +8,17 @@
     background-repeat: no-repeat;
 }
 
-/* ---------------- PAGE FORMAT ---------------- */
+/* ---------------- HTML FORMAT ---------------- */
 html {
     background-color: #000;
 }
 body {
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
+    overscroll-behavior-y: none;
 }
 #MainMenu,
 #LeftLink,
@@ -32,6 +33,33 @@ body {
     z-index: 0;
 }
 
+/* ---------------- GLOBAL MARGIN FORMAT ---------------- */
+#MainMenu ul,
+#BottomMenu {
+    height: 80px;
+}
+#MainMenu ul,
+#BottomMenu,
+.PaddedWidth,
+#HomeBody #Page7 p,
+#InnerBody #Page0,
+#InnerBody #Page1 {
+    padding: 0 16%;
+}
+#HamburgerToggler {
+    margin: 0 16%;
+}
+#HamburgerWrapper {
+    right: 16%;
+}
+#InnerBody #Page0 {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+#ProjectGallery {
+    margin-bottom: 80px;
+}
+
 /* ---------------- TEXT FORMAT ---------------- */
 a,
 p,
@@ -42,9 +70,9 @@ h3 {
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 16px;
     position: relative;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     font-weight: 400;
     transition: color 300ms ease-in-out;
     transition: background-color 200ms ease-in-out;
@@ -55,14 +83,42 @@ a {
 p {
     cursor: default;
 }
+.TextBold {
+    font-weight: 600;
+}
+.TextBoldSmall {
+    font-weight: 800;
+}
+/* ---- Home Page Text Format ---- */
+#CoverNavHome p {
+    letter-spacing: 3px;
+}
 .SectionLink {
     font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 8px;
-    word-spacing: 16px;
+    font-weight: 400;
+    word-spacing: 8px;
+    letter-spacing: 4px;
+}
+/* ---- Inner Page Text Format ---- */
+#ProjectInfo h3 {
+    font-size: 48px;
+    font-weight: 200;
+    line-height: 48px;
+    letter-spacing: 2px;
+    padding: 20px 0;
+    text-align: justify;
+}
+#ProjectInfo p {
+    font-size: 16px;
+    font-weight: 200;
+    text-transform: none;
+    line-height: calc(16px * 1.5);
+    letter-spacing: 0.5px;
+    text-align: justify;
 }
 
-/* ---------------- TEXT HOVER FORMAT ---------------- */
+/* ---------------- Global Hover + Click Effects ---------------- */
+
 a:hover,
 h1:hover,
 h2:hover,
@@ -79,6 +135,11 @@ a:hover .Highlight {
 a:hover .Highlight::before {
     transform: translate(0, -3px) scaleX(1);
 }
+h1:hover .Underline::before,
+h2:hover .Underline::before,
+a:hover .Underline::before {
+    transform: translate(0, 24px) scaleX(1);
+}
 .Highlight::before {
     content: '';
     background-color: #A3EF1E;
@@ -90,24 +151,19 @@ a:hover .Highlight::before {
     transform-origin: left;
     transition: transform 200ms ease-in-out;
 }
-h1:hover .Underline::before,
-h2:hover .Underline::before,
-a:hover .Underline::before {
-    transform: translate(0, 25px) scaleX(1);
-}
 .Underline::before {
     content: '';
     background-color: #A3EF1E;
     height: 1.5px;
     width: 100%;
     position: absolute;
-    transform: translate(0, 25px) scaleX(0);
+    transform: translate(0, 24px) scaleX(0);
     transform-origin: left;
     transition: transform 200ms ease-in-out;
 }
 .HoverActiveUnderline {
     color: #A3EF1E;
-    transform: translate(0, 25px) scaleX(0);
+    transform: translate(0, 24px) scaleX(0);
     transition: color 300ms ease-in-out;
 }
 .HoverActiveUnderline::before {
@@ -116,14 +172,16 @@ a:hover .Underline::before {
     height: 1.5px;
     width: 100%;
     position: absolute;
-    transform: translate(0, 25px) scaleX(1);
+    transform: translate(0, 24px) scaleX(1);
     transform-origin: left;
     transition: transform 200ms ease-in-out;
 }
-
 /* ---------------- TOP NAV ---------------- */
 #MainMenu {
+    width: 100vw;
     display: none;
+    position: absolute;
+    top: 0;
 }
 #MainMenu ul {
     pointer-events: none;
@@ -132,15 +190,11 @@ a:hover .Underline::before {
     pointer-events: auto;
 }
 #MainMenu ul {
-    height: 80px;
-    width: 100vw;
-    padding: 0 4%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    top: 0;
 }
 #MenuLinks {
     min-width: 160px;
@@ -168,7 +222,6 @@ a:hover .Underline::before {
     display: block;
     position: absolute;
     right: 0;
-    margin: 0 5%;
     opacity: 0;
     visibility: hidden;
 }
@@ -177,7 +230,6 @@ a:hover .Underline::before {
     width: 15px;
     display: block;
     position: absolute;
-    right: 4.5%;
     visibility: hidden;
     transform-origin: center;
     transition: transform 150ms ease-in-out;
@@ -196,22 +248,8 @@ a:hover .Underline::before {
 #HamburgerBottom {
     transform: translateY(8.5px);
 }
-
-#HamburgerToggler:hover {
-    cursor: pointer;
-}
-
-#HamburgerToggler:hover ~ #HamburgerWrapper div {
-    background-color: #A3EF1E;
-}
 #HamburgerToggler:checked ~ #HamburgerWrapper div {
     background-color: #A3EF1E;
-}
-#HamburgerToggler:hover ~ #HamburgerWrapper #HamburgerTop {
-    transform: translateY(3.5px);
-}
-#HamburgerToggler:hover ~ #HamburgerWrapper #HamburgerBottom {
-    transform: translateY(3.5px);
 }
 #HamburgerToggler:checked + #HamburgerWrapper #HamburgerTop {
     transform: translateY(3.5px) rotate(45deg);
@@ -219,17 +257,9 @@ a:hover .Underline::before {
 #HamburgerToggler:checked + #HamburgerWrapper #HamburgerBottom {
     transform: translateY(3.5px) rotate(-45deg);
 }
-#HamburgerToggler:checked:hover + #HamburgerWrapper #HamburgerTop {
-    transform: translateY(3.5px) rotate(0deg);
-}
-#HamburgerToggler:checked:hover + #HamburgerWrapper #HamburgerBottom {
-    transform: translateY(3.5px) rotate(0deg);
-}
 
 /* ---------------- COVER NAV HOME ---------------- */
 #CoverNavHome {
-    height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -246,62 +276,12 @@ a:hover .Underline::before {
     word-spacing: 2px;
 }
 
-/* ---------------- SIDE NAV ---------------- */
-/*
-#SideMenu {
-    height: 100vh;
-    width: calc(100vw - 8%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    pointer-events: none;
-}
-#SideMenu ul {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#SideMenu ul li {
-    pointer-events: auto;
-    cursor: pointer;
-}
-#LeftLink {
-    height: 40px;
-    width: 200px;
-    transform: rotate(-90deg) translate(0px, -85px);
-    text-align: center;
-    display: none;
-}
-#RightLink {
-    height: 40px;
-    width: 200px;
-    transform: rotate(90deg) translate(0px, -85px);
-    text-align: center;
-    display: none;
-}
-*/
-
 /* ---------------- PAGE ---------------- */
 #PageContent {
-    height: 100vh;
+    width: 100vw;
+    height: 100dvh;
     overflow: scroll;
     scroll-snap-type: y mandatory;
-}
-#HomeBody #PageContent div {
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    scroll-snap-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#HomeBody #PageContent div h3 {
-    letter-spacing: 2px;
 }
 #PageContent .SectionTitle {
     height: 100%;
@@ -329,78 +309,71 @@ a:hover .Underline::before {
 }
 
 /* ---- Home Page ---- */
+#HomeBody #PageContent div {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #HomeBody #Page0 .SectionImg {
     background-image: url(/Videos/home-reel-8s-compressed.mp4);
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+
 }
 #HomeBody #Page1 .SectionImg {
-    background-image: url(/Images/vanity/10.jpg);
+    background-image: url(/Images/vanity/07.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page2 .SectionImg {
     background-image: url(/Images/ld/ld-overview.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page3 .SectionImg {
     background-image: url(/Images/timbre/IMG_9879.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page4 .SectionImg {
     background-image: url(/Images/circa/imac01.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page5 .SectionImg {
     background-image: url(/Images/dearbrightly/AD1\ V2\ A1\ 16_9.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page6 .SectionImg {
     background-image: url(/Images/cinestill/16x9\ Screen\ Isometric\ 02.jpg);
     background-size: cover;
-    height: calc((100vw - 8%) / 2.39);
-    width: calc(100vw - 8%);
+    height: calc(100vw / 2.39);
 }
 #HomeBody #Page7 {
     background-image: none;
     background-size: cover;
 }
 #HomeBody #Page7 p {
-    width: calc(100vw - 32%);
+    width: 100%;
     text-transform: none;
+    line-height: calc(16px * 1.5);
     letter-spacing: 0.5px;
     text-align: justify;
 }
 
 /* ---- Inner Page ---- */
 #InnerBody #PageContent {
-    scroll-snap-type: none;
+    scroll-snap-type: y proximity;
 }
 #InnerBody #PageContent div {
     scroll-snap-align: center;
 }
 #InnerBody #Page0 {
-    background-image: none;
-    height: auto;
-    width: 100vw;
-    padding-top: 80px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-#InnerBody #Page1 {
     height: auto;
     width: 100vw;
     display: flex;
@@ -409,11 +382,7 @@ a:hover .Underline::before {
     align-items: center;
 }
 #InnerBody #Page0 .SectionImg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 40vw;
-    width: calc(100vw - 8%);
 }
 #InnerBody #Page0 .SectionImg iframe {
     height: 100%;
@@ -421,31 +390,15 @@ a:hover .Underline::before {
 }
 #InnerBody #PageContent div #ProjectInfo {
     height: auto;
-    width: calc(100vw - 8%);
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
-#ProjectInfo h3 {
-    font-size: 48px;
-    font-weight: 200;
-    line-height: 48px;
-    letter-spacing: 4px;
-    padding: 20px 0;
-}
-#ProjectInfo p {
-    font-size: 15px;
-    font-weight: 200;
-    line-height: calc(15px * 1.5);
-    text-transform: none;
-    letter-spacing: 1px;
-    text-align: justify;
-}
 #ProjectGallery {
     height: auto;
-    width: calc(100% - 8%);
-    padding-bottom: 80px;
+    width: 100%;
     display: grid;
     grid-template-columns: minmax(auto, 50%) minmax(auto, 50%);
     column-gap: 16px;
@@ -458,10 +411,18 @@ a:hover .Underline::before {
     background-position: center;
     background-repeat: no-repeat;
 }
+#InnerBody #Page1 {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 /* ---- Vanity Page ---- */
-.Vanity .SectionImg {
-    width: calc(100vw - 8%);
+#InnerBody .SectionImg {
+    width: 100%;
+    background-size: cover;
 }
 .Vanity #Thumbnail1 {
     background-image: url(/Images/vanity/03.jpg);
@@ -491,8 +452,6 @@ a:hover .Underline::before {
 /* ---- LD Page ---- */
 .LD .SectionImg {
     background-image: url(/Images/ld/ld-cover.jpg);
-    background-size: cover;
-    width: calc(100vw - 8%);
 }
 .LD #Thumbnail1 {
     background-image: url(/Images/ld/ld-cover.jpg);
@@ -504,8 +463,6 @@ a:hover .Underline::before {
 /* ---- TIMBRE Page ---- */
 .Timbre .SectionImg {
     background-image: url(/Images/timbre/IMG_9879.jpg);
-    background-size: cover;
-    width: calc(100vw - 8%);
 }
 .Timbre #Thumbnail1 {
     background-image: url(/Images/timbre/exploded\ closer.jpg);
@@ -523,8 +480,6 @@ a:hover .Underline::before {
 /* ---- CIRCA Page ---- */
 .Circa .SectionImg {
     background-image: url(/Images/circa/imac01.jpg);
-    background-size: cover;
-    width: calc(100vw - 8%);
 }
 .Circa #Thumbnail1 {
     background-image: url(/Images/circa/iphone_mockup.jpg);
@@ -536,14 +491,11 @@ a:hover .Underline::before {
 /* ---- DEARBRIGHTLY Page ---- */
 .DB .SectionImg {
     background-image: url(/Images/dearbrightly/AD1\ V2\ A1\ 16_9.jpg);
-    background-size: cover;
-    width: calc(100vw - 8%);
 }
 
 /* ---- CINESTILL Page ---- */
 .CineStill .SectionImg {
     background-image: none;
-    width: calc(100vw - 8%);
 }
 .CineStill #Thumbnail1 {
     background-image: url(/Images/cinestill/draft\ \(0-00-14-07\)0.jpg);
@@ -560,9 +512,7 @@ a:hover .Underline::before {
     pointer-events: auto;
 }
 #BottomMenu {
-    height: 80px;
     width: 100vw;
-    padding: 0 4%;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -592,23 +542,76 @@ a:hover .Underline::before {
 }
 
 /* ---------------- MEDIA QUERIES ---------------- */
-@media all and (max-width: 1250px) {
-    #PageContent .SectionTitle:hover h3 {
-        color: #A3EF1E;
+@media (hover:hover) {
+    /* ---- Global Hover Effects ---- */
+    /* ---- Hamburger Menu ---- */
+    #HamburgerToggler:hover {
+        cursor: pointer;
     }
-    #HomeBody #Page1 .SectionImg,
-    #HomeBody #Page2 .SectionImg,
-    #HomeBody #Page3 .SectionImg,
-    #HomeBody #Page4 .SectionImg, 
-    #HomeBody #Page5 .SectionImg, 
-    #HomeBody #Page6 .SectionImg {
-        background-size: cover;
-        height: 100%;
-        width: 100vw;
+    #HamburgerToggler:hover ~ #HamburgerWrapper div {
+        background-color: #A3EF1E;
+    }
+    #HamburgerToggler:hover ~ #HamburgerWrapper #HamburgerTop {
+        transform: translateY(3.5px);
+    }
+    #HamburgerToggler:hover ~ #HamburgerWrapper #HamburgerBottom {
+        transform: translateY(3.5px);
+    }
+    #HamburgerToggler:checked:hover + #HamburgerWrapper #HamburgerTop {
+        transform: translateY(3.5px) rotate(0deg);
+    }
+    #HamburgerToggler:checked:hover + #HamburgerWrapper #HamburgerBottom {
+        transform: translateY(3.5px) rotate(0deg);
+    }
+}
+@media all and (min-width: 800px) and (max-width: 1800px) {
+    /* ---- Global Padding ---- */
+    #MainMenu ul,
+    #BottomMenu,
+    .PaddedWidth,
+    #HomeBody #Page7 p,
+    #InnerBody #Page0,
+    #InnerBody #Page1 {
+        padding: 0 8%;
+    }
+    #HamburgerToggler {
+        margin: 0 8%;
+    }
+    #HamburgerWrapper {
+        right: 8%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    /* ---- Global Padding ---- */
+    #MainMenu ul,
+    #BottomMenu {
+        height: 50px;
+    }
+    #MainMenu ul,
+    #BottomMenu,
+    #HomeBody #Page7 p,
+    #InnerBody #Page0,
+    #InnerBody #Page1 {
+        padding: 0 4%;
+    }
+    #HamburgerToggler {
+        margin: 0 4%;
+    }
+    #HamburgerWrapper {
+        right: 4%;
+    }
+    .PaddedWidth {
+        padding: 0;
+    }
+    #InnerBody #Page0 {
+        margin-top: 50px;
+    }
+    #ProjectGallery {
+        margin-bottom: 50px;
     }
 
-}
-@media all and (max-width: 750px) {
+    /* ---- Mobile Menu ---- */
     #HamburgerToggler {
         visibility: visible;
         cursor: pointer;
@@ -636,16 +639,29 @@ a:hover .Underline::before {
         transition: opacity 500ms ease-in-out;
     }
 
+    /* ---- Home Page ---- */
+    #PageContent .SectionTitle:hover h3 {
+        color: #A3EF1E;
+    }
+    #HomeBody #Page1 .SectionImg,
+    #HomeBody #Page2 .SectionImg,
+    #HomeBody #Page3 .SectionImg,
+    #HomeBody #Page4 .SectionImg, 
+    #HomeBody #Page5 .SectionImg, 
+    #HomeBody #Page6 .SectionImg {
+        background-size: cover;
+        height: 100%;
+        width: 100vw;
+    }
+
     /* ---- Inner Page ---- */
     #InnerBody #Page0 .SectionImg {
         min-height: calc(100vw / 1.85);
     }
-    
     #ProjectInfo h3 {
         font-size: 38px;
         line-height: 38px;
     }
-
     #ProjectGallery {
         grid-template-columns: 100%;
         column-gap: 0px;

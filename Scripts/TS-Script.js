@@ -59,22 +59,7 @@ $(function() {
         () => $("#PageContent").css("scroll-snap-type", "y mandatory")
       );
     });
-
-    /*$("#ToDown").on("click", () => {
-      //set HomeDiv variable to find single inner #PageContent section height
-      let InnerPage0 = $("#InnerBody #Page0").height();
-
-      let InnerDiv = InnerPage0 * (1);
-
-      $("#PageContent").css("scroll-snap-type", "none");
-      //set scroll animation destination to top of next section by making page scroll height of inner page first section
-      $("#PageContent").stop().animate(
-        { scrollTop: InnerDiv },
-        1000,
-        () => $("#PageContent").css("scroll-snap-type", "y proximity")
-      );
-    });*/
-  
+    
     //event listner for scrolling on #PageContent
     $("#PageContent").scroll(function(){
         
@@ -116,14 +101,6 @@ $(function() {
           $("#HomeBody #BottomMenu ul li, #InnerBody #ToTop").fadeOut(200);
         }
 
-        //if else statement to fadeout #ToDown as soon as any scroll down is done
-        //breakpoint = document top @ 0
-        /*if (Scrolled > 0) {
-          $("#ToDown").fadeOut(100);
-        } else {
-          $("#ToDown").fadeIn(100);
-        }*/
-        
         //if else statement to change menu blend mode when scrolling between home and end sections
         //breakpoint = section top
         if (Scrolled > HomeTop && Scrolled < EndSectionTop) {
@@ -154,29 +131,5 @@ $(function() {
         } else {
           $("#HomeBody .Contact a").removeClass("HoverActiveUnderline");
         }
-
-        //if else and statement to fadein-fadeout #RightLink when not at first or last section
-        /*if (scrolled > homemid && scrolled < endsection) {
-          $("#RightLink").fadeIn(150);
-        } else {
-          $("#RightLink").fadeOut(150);
-        }*/
-
     });
-
-    /*
-    $(function() {
-      let sections = $(".ScrollTo");
-      let btn = $("#RightLink");
-      let idx = 2;
-      btn.on('click', e => {
-        e.preventDefault();
-        idx >= sections.length && (idx = 0);
-        $("#PageContent").animate({
-          scrollTop: $(sections[idx++]).offset().top
-        }, 700);
-      });
-    });
-    */
-
 });
