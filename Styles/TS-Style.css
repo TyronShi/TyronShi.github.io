@@ -44,13 +44,16 @@ body {
 #HomeBody #Page7 p,
 #InnerBody #Page0,
 #InnerBody #Page1 {
-    padding: 0 16%;
+    padding: 0 18%;
 }
 #HamburgerToggler {
-    margin: 0 16%;
+    margin: 0 18%;
 }
 #HamburgerWrapper {
-    right: 16%;
+    right: 18%;
+}
+#HomeBody .SectionImg {
+    height: calc((100vw - 18%) * (1 / 2.66));
 }
 #InnerBody #Page0 {
     margin-top: 80px;
@@ -125,9 +128,6 @@ h2:hover,
 .Highlight:hover,
 .Underline:hover {
     color: #A3EF1E;
-}
-#PageContent a:hover h3 {
-    color: #F046FF;
 }
 a:hover .Highlight {
     color: #FFF;
@@ -297,6 +297,16 @@ a:hover .Underline::before {
 #PageContent .SectionTitle:hover {
     background-color: #f046ff7b;
 }
+#Page0,
+#Page1,
+#Page2,
+#Page3,
+#Page4,
+#Page5,
+#Page6,
+#Page7 {
+    height: 100%;
+}
 #Page1,
 #Page2,
 #Page3,
@@ -310,7 +320,6 @@ a:hover .Underline::before {
 
 /* ---- Home Page ---- */
 #HomeBody #PageContent div {
-    height: 100%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -322,37 +331,32 @@ a:hover .Underline::before {
 #HomeBody #Page0 .SectionImg {
     background-image: url(/Videos/home-reel-8s-compressed.mp4);
     background-size: cover;
+    height: 100%;
 
 }
 #HomeBody #Page1 .SectionImg {
     background-image: url(/Images/vanity/07.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page2 .SectionImg {
     background-image: url(/Images/ld/ld-overview.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page3 .SectionImg {
     background-image: url(/Images/timbre/IMG_9879.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page4 .SectionImg {
     background-image: url(/Images/circa/imac01.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page5 .SectionImg {
     background-image: url(/Images/dearbrightly/AD1\ V2\ A1\ 16_9.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page6 .SectionImg {
     background-image: url(/Images/cinestill/16x9\ Screen\ Isometric\ 02.jpg);
     background-size: cover;
-    height: calc(100vw / 2.39);
 }
 #HomeBody #Page7 {
     background-image: none;
@@ -381,12 +385,14 @@ a:hover .Underline::before {
     justify-content: flex-start;
     align-items: center;
 }
-#InnerBody #Page0 .SectionImg {
-    height: 40vw;
-}
-#InnerBody #Page0 .SectionImg iframe {
-    height: 100%;
+#InnerBody .SectionImg {
     width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+#InnerBody .SectionImg iframe {
+    width: 100%;
+    height: 100%;
 }
 #InnerBody #PageContent div #ProjectInfo {
     height: auto;
@@ -405,12 +411,30 @@ a:hover .Underline::before {
     row-gap: 16px;
 }
 .ProjectPhoto {
-    min-height: calc(50vw * (1 / 2.39));
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.IF-AR-239x1 {
+    height: calc(64vw / 2.39);
+    min-height: calc(64vw / 2.39);
+}
+.IF-AR-16x9 {
+    height: calc(67vw / 1.85);
+    min-height: calc(67vw / 1.85);
+}
+.AR-239x1 {
+    padding-bottom: calc(100% * (1 / 2.39));
+}
+.AR-16x9 {
+    padding-bottom: calc(100% * (9 / 16));
+}
+.AR-3x2 {
+    padding-bottom: calc(100% * (2 / 3));
+}
+
 #InnerBody #Page1 {
     height: auto;
     display: flex;
@@ -420,10 +444,6 @@ a:hover .Underline::before {
 }
 
 /* ---- Vanity Page ---- */
-#InnerBody .SectionImg {
-    width: 100%;
-    background-size: cover;
-}
 .Vanity #Thumbnail1 {
     background-image: url(/Images/vanity/03.jpg);
 }
@@ -450,9 +470,6 @@ a:hover .Underline::before {
 }
 
 /* ---- LD Page ---- */
-.LD .SectionImg {
-    background-image: url(/Images/ld/ld-cover.jpg);
-}
 .LD #Thumbnail1 {
     background-image: url(/Images/ld/ld-cover.jpg);
 }
@@ -468,13 +485,13 @@ a:hover .Underline::before {
     background-image: url(/Images/timbre/exploded\ closer.jpg);
 }
 .Timbre #Thumbnail2 {
-    background-image: url(/Images/timbre/IMG_9661.jpg);
+    background-image: url(/Images/timbre/postcard04.jpg);
 }
 .Timbre #Thumbnail3 {
     background-image: url(/Images/timbre/postcard03.jpg);
 }
 .Timbre #Thumbnail4 {
-    background-image: url(/Images/timbre/postcard04.jpg);
+    background-image: url(/Images/timbre/IMG_9661.jpg);
 }
 
 /* ---- CIRCA Page ---- */
@@ -544,6 +561,9 @@ a:hover .Underline::before {
 /* ---------------- MEDIA QUERIES ---------------- */
 @media (hover:hover) {
     /* ---- Global Hover Effects ---- */
+    #PageContent .SectionTitle:hover h3 {
+        color: #A3EF1E;
+    }
     /* ---- Hamburger Menu ---- */
     #HamburgerToggler:hover {
         cursor: pointer;
@@ -564,7 +584,7 @@ a:hover .Underline::before {
         transform: translateY(3.5px) rotate(0deg);
     }
 }
-@media all and (min-width: 800px) and (max-width: 1800px) {
+@media all and (min-width: 800px) and (max-width: 1920px) {
     /* ---- Global Padding ---- */
     #MainMenu ul,
     #BottomMenu,
@@ -579,6 +599,19 @@ a:hover .Underline::before {
     }
     #HamburgerWrapper {
         right: 8%;
+    }
+    #HomeBody .SectionImg {
+        min-height: calc(100vw * (1 / 2.39));
+    }
+
+    /* ---- Inner Page ---- */
+    .IF-AR-239x1 {
+        height: calc(84vw / 2.39);
+        min-height: calc(84vw / 2.39);
+    }
+    .IF-AR-16x9 {
+        height: calc(87vw / 1.85);
+        min-height: calc(87vw / 1.85);
     }
 }
 
@@ -603,6 +636,9 @@ a:hover .Underline::before {
     }
     .PaddedWidth {
         padding: 0;
+    }
+    #PageContent .SectionTitle {
+        padding: 0 4%;
     }
     #InnerBody #Page0 {
         margin-top: 50px;
@@ -640,8 +676,9 @@ a:hover .Underline::before {
     }
 
     /* ---- Home Page ---- */
-    #PageContent .SectionTitle:hover h3 {
-        color: #A3EF1E;
+    #PageContent .SectionTitle {
+        text-align: justify;
+        text-align-last: center;
     }
     #HomeBody #Page1 .SectionImg,
     #HomeBody #Page2 .SectionImg,
@@ -655,7 +692,12 @@ a:hover .Underline::before {
     }
 
     /* ---- Inner Page ---- */
-    #InnerBody #Page0 .SectionImg {
+    .IF-AR-239x1 {
+        height: calc(100vw * (1 / 1.85));
+        min-height: calc(100vw * (1 / 1.85));
+    }
+    .IF-AR-16x9 {
+        height: calc(100vw / 1.85);
         min-height: calc(100vw / 1.85);
     }
     #ProjectInfo h3 {
@@ -666,7 +708,5 @@ a:hover .Underline::before {
         grid-template-columns: 100%;
         column-gap: 0px;
     }
-    .ProjectPhoto {
-        min-height: calc(100vw * (1 / 1.85));
-    }
+
 }
