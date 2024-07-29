@@ -329,7 +329,7 @@ a:hover .Underline::before {
     align-items: center;
 }
 #HomeBody #Page0 .SectionImg {
-    background-image: url(/Videos/home-reel-8s-compressed.mp4);
+    background-image: url(/Videos/home-reel-8s.mp4);
     background-size: cover;
     height: 100%;
 
@@ -347,7 +347,7 @@ a:hover .Underline::before {
     background-size: cover;
 }
 #HomeBody #Page4 .SectionImg {
-    background-image: url(/Images/circa/imac01.jpg);
+    background-image: url(/Images/andura/andura_17.1.2.jpg);
     background-size: cover;
 }
 #HomeBody #Page5 .SectionImg {
@@ -494,15 +494,36 @@ a:hover .Underline::before {
     background-image: url(/Images/timbre/IMG_9661.jpg);
 }
 
-/* ---- CIRCA Page ---- */
-.Circa .SectionImg {
-    background-image: url(/Images/circa/imac01.jpg);
+/* ---- ANDURA Page ---- */
+.Andura #Thumbnail1 {
+    background-image: url(/Images/andura/andura_5.1.1.jpg);
 }
-.Circa #Thumbnail1 {
-    background-image: url(/Images/circa/iphone_mockup.jpg);
+.Andura #Thumbnail2 {
+    background-image: url(/Images/andura/andura_10.7.1.jpg);
 }
-.Circa #Thumbnail2 {
-    background-image: url(/Images/circa/imac-phone-02.jpg);
+.Andura #Thumbnail3 {
+    background-image: url(/Images/andura/andura_17.1.2.jpg);
+}
+.Andura #Thumbnail4 {
+    background-image: url(/Images/andura/andura_20.5.1.jpg);
+}
+.Andura #Thumbnail5 {
+    background-image: url(/Images/andura/andura_21.3.1.jpg);
+}
+.Andura #Thumbnail6 {
+    background-image: url(/Images/andura/andura_12.4.1.jpg);
+}
+.Andura #Thumbnail7 {
+    background-image: url(/Images/andura/andura_15.46.1.jpg);
+}
+.Andura #Thumbnail8 {
+    background-image: url(/Images/andura/andura_19.28.1.jpg);
+}
+.Andura #Thumbnail9 {
+    background-image: url(/Images/andura/andura_20.4.1.jpg);
+}
+.Andura #Thumbnail10 {
+    background-image: url(/Images/andura/andura_15.57.1.jpg);
 }
 
 /* ---- DEARBRIGHTLY Page ---- */
